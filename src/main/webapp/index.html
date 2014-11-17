@@ -51,15 +51,6 @@ Today is <script>document.write(Date());</script>
 	<div class="span12">
 		<legend>Container Activity</legend>
 		<div class="row-fluid table-condensed">
-			<div style="text-align: right">
-				Refresh every
-				<select>
-				  <option value="30">30 Seconds</option>
-				  <option value="60">1 Minute</option>
-				  <option value="300">30 Minutes</option>
-				  <option value="900">1 Hour</option>
-				</select>
-			</div>
         	<table id="containers" class="table table-hover table-bordered" cellspacing="0" width="100%">
 				<thead>
 					<tr>
@@ -137,9 +128,13 @@ Today is <script>document.write(Date());</script>
 					{ "data": "diskSpaceUsed" },
 					{ "data": "diskSpaceFree" }
 				]
-		} ); 
+		} );
+		
+		$('#containers tbody').on('click', 'tr', function () {
+			var name = $('td', this).eq(0).text();
+	        	alert( 'You clicked on '+name+'\'s row' );
+    		} );
 	} );
-
 </script>
 
 </body>
