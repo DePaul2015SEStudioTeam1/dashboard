@@ -129,7 +129,7 @@ Today is <script>document.write(Date());</script>
 					{ "data": "diskSpaceFree" }
 				]
 		} );
-		
+		$.fn.dataTable.ext.errMode = 'throw';
 		<!--
 		$('#containers tbody').on('click', 'tr', function () {
 			var name = $('td', this).eq(0).text();
