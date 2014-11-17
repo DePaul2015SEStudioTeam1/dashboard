@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -63,127 +63,61 @@ Today is <script>document.write(Date());</script>
         	<table id="containers" class="table table-hover table-bordered" cellspacing="0" width="100%">
 				<thead>
 					<tr>
-						<th>Agent ID</th>
-						<th>Host Name</th>
-                        <th>CPU Vendor</th>
-                    	<th>CPU Model</th>
-                    	<th>CPU Count</th>
-                    	<th>Diskspace Total (GB)</th>
-                       	<th>Diskspace Used (GB)</th>
-                    	<th>Diskspace Free (GB)</th>
-                    	<th>Memory Total (kB)</th>
-                       	<th>Memory Used (kB)</th>
-                    	<th>Memory Free (kB)</th>
-                      	<th>OS Description</th>
-                     	<th>OS Data Model</th>
-                     	<th>Primary IP</th>
-                     	<th>Primary MAC Address</th>
-                     </tr>
-                  </thead>
+						<th>id</th>
+						<th>agentId</th>
+						<th>memTotal</th>
+						<th>memUsed</th>
+						<th>memFree</th>
+						<th>osDescription</th>
+						<th>osName</th>
+						<th>osDataModel</th>
+						<th>primaryIpAddress</th>
+						<th>primaryMacAddress</th>
+						<th>hostName</th>
+						<th>cpuVendor</th>
+						<th>cpuModel</th>
+						<th>cpuCount</th>
+						<th>diskSpaceTotal</th>
+						<th>diskSpaceUsed</th>
+						<th>diskSpaceFree</th>
+	  	           </tr>
+                </thead>
                 <tfoot>
 					<tr>
-						<th>Agent ID</th>
-						<th>Host Name</th>
-                        <th>CPU Vendor</th>
-                    	<th>CPU Model</th>
-                    	<th>CPU Count</th>
-                    	<th>Diskspace Total (GB)</th>
-                       	<th>Diskspace Used (GB)</th>
-                    	<th>Diskspace Free (GB)</th>
-                    	<th>Memory Total (kB)</th>
-                       	<th>Memory Used (kB)</th>
-                    	<th>Memory Free (kB)</th>
-                      	<th>OS Description</th>
-                     	<th>OS Data Model</th>
-                     	<th>Primary IP</th>
-                     	<th>Primary MAC Address</th>
+						<th>id</th>
+						<th>agentId</th>
+						<th>memTotal</th>
+						<th>memUsed</th>
+						<th>memFree</th>
+						<th>osDescription</th>
+						<th>osName</th>
+						<th>osDataModel</th>
+						<th>primaryIpAddress</th>
+						<th>primaryMacAddress</th>
+						<th>hostName</th>
+						<th>cpuVendor</th>
+						<th>cpuModel</th>
+						<th>cpuCount</th>
+						<th>diskSpaceTotal</th>
+						<th>diskSpaceUsed</th>
+						<th>diskSpaceFree</th>
                      </tr>
-                  </tfoot>         
-                <tbody>
-                  	<tr>
-	            		<td>1</td>
-                        <td>bitsy.mit.edu</td>
-                    	<td>GenuineIntel</td>
-                   		<td>Intel(R) Core(TM) i3-2100T CPU @ 2.50GHz</td>
-                		<td>2</td>
-                  		<td>500</td>
-                   		<td>120</td>
-                   		<td>380</td>
-						<td>8177444</td>
-                		<td>5250532</td>
-                 		<td>1528304</td>
-                   		<td>Linux - Ubuntu</td>
-						<td>64bit</td>
-						<td>18.72.0.3</td>
-						<td>03:16:b1:c2:db:a4</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>cdm.depaul.edu</td>
-						<td>GenuineIntel</td>
-						<td>Intel(R) Xeon(R) CPU E3-1220L V2 @ 2.30GHz</td>
-						<td>3</td>
-						<td>750</td>
-						<td>240</td>
-						<td>760</td>
-						<td>8177444</td>
-						<td>5250532</td>
-						<td>1528304</td>
-						<td>Linux - CentOS</td>
-						<td>64bit</td>
-						<td>140.192.32.136</td>
-						<td>00:26:b9:82:9b:64</td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>cis.ksu.edu</td>
-						<td>AuthenticAMD</td>
-						<td>AMD Opteron(TM) Processor 6272</td>
-						<td>4</td>
-						<td>650</td>
-						<td>320</td>
-						<td>680</td>
-						<td>8177444</td>
-						<td>5250532</td>
-						<td>1528304</td>
-						<td>Linux - Red Hat</td>
-						<td>64bit</td>
-						<td>129.130.10.40</td>
-						<td>0a:f6:b3:a2:b9:46</td>
-					</tr>
-				</tbody>
-			</table>
+                  </tfoot>
+	        </table>
         </div>
 	</div>
 </div>
+
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
-<script>
+<script>	
 	$(document).ready(function() {
-    	var selected = [];
- 
-    $("#containers").dataTable({
-        "rowCallback": function( row, data ) {
-            if ( $.inArray(data.DT_RowId, selected) !== -1 ) {
-                $(row).addClass('selected active');
-            }
-        }
-    });
- 
-    $('#containers tbody').on('click', 'tr', function () {
-        var id = this.id;
-        var index = $.inArray(id, selected);
- 
-        if ( index === -1 ) {
-            selected.push( id );
-        } else {
-            selected.splice( index, 1 );
-        }
- 
-        $(this).toggleClass('selected active');
-    } );
-} );
+		var cTable = $('#containers').dataTable( {
+    			"sAjaxSource": "http://localhost:8080/operations-service/containers/",
+    			"sAjaxDataProp": '',
+		} ); 
+	} );
 </script>
 
 </body>
