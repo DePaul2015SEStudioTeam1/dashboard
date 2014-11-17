@@ -114,8 +114,7 @@ Today is <script>document.write(Date());</script>
 <script>	
 	$(document).ready(function() {
 		var cTable = $('#containers').dataTable( {
-    			"sAjaxSource": "http://localhost:8080/operations-service/containers/",
-    			"sAjaxDataProp": '',
+    			"ajax": "http://localhost:8080/operations-service/containers/"
 		} ); 
 	} );
 </script>
