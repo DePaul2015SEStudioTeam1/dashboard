@@ -113,13 +113,33 @@ Today is <script>document.write(Date());</script>
 <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
 <script>	
 	$(document).ready(function() {
-		var cTable = $('#containers').dataTable( {
+		$('#containers').dataTable( {
 	    		"ajax": {
 	    			url: "http://localhost:8080/operations-service/containers/",
 	    			dataSrc: ""
-	    		}
+	    		},
+				"columns": [
+					{ "data": "id" },
+					{ "data": "agentId" },
+					{ "data": "memTotal" },
+					{ "data": "memUsed" },
+					{ "data": "memFree" },
+					{ "data": "osDescription" },
+					{ "data": "osName" },
+					{ "data": "osDataModel" },
+					{ "data": "primaryIpAddress" },
+					{ "data": "primaryMacAddress" },
+					{ "data": "hostName" },
+					{ "data": "cpuVendor" },
+					{ "data": "cpuModel" },
+					{ "data": "cpuCount" },
+					{ "data": "diskSpaceTotal" },
+					{ "data": "diskSpaceUsed" },
+					{ "data": "diskSpaceFree" }
+				]
 		} ); 
 	} );
+
 </script>
 
 </body>
