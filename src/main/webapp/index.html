@@ -48,7 +48,11 @@
     </nav>
 
 <div class="container">
-<H4>Today is <script>document.write(Date());</script></H4>
+<H4>Today is 
+<script>
+	var d = new Date();
+	document.write(d.toDateString());
+</script></H4>
 <br/>
 <br/>
 <br/>
