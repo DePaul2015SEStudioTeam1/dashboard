@@ -34,11 +34,7 @@
 <body>
 
 <div class="page-header">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" href="#">Welcome to the Armada Dashboard</a>
-            </div>
-        </div>
+	<a class="brand" href="#">Welcome to the Armada Dashboard</a>
 </div>
 
 <div class="container">
@@ -103,6 +99,7 @@
 <script>	
 	$(document).ready(function() {
 		$('#containers').dataTable( {
+			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 	    		"ajax": {
 	    			url: "http://localhost:8080/operations-service/containers/",
 	    			dataSrc: ""
