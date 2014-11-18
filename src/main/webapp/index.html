@@ -117,10 +117,10 @@
 			"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
 				switch(aData[2]){
 					case '0':
-						$(nRow).css('color', 'red')
+						$(nRow).addClass("danger")
 						break;
 					case 'N/A':
-						$(nRow).css('color', 'red')
+						$(nRow).addClass("danger")
 						break;
 				}
 			},
