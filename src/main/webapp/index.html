@@ -115,7 +115,7 @@
 	$(document).ready(function() {
 		var table = $('#containers').dataTable( {
 			"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-				switch(aData[2]){
+				switch(aData[0]){
 					case '0':
 						$(nRow).addClass("danger")
 						break;
