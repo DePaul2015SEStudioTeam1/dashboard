@@ -141,7 +141,9 @@
 		} );
 		$.fn.dataTable.ext.errMode = 'throw';
 		
-		$('containers').dataTable()._fnAjaxUpdate();
+		setInterval( function () {
+			table.ajax.url.reload();
+		}, 30000 );
 		
 		<!--
 		$('#containers tbody').on('click', 'tr', function () {
