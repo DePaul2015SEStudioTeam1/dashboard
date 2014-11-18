@@ -114,6 +114,16 @@
 <script>
 	$(document).ready(function() {
 		var table = $('#containers').dataTable( {
+			"fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+				switch(aData[2]){
+					case '0':
+						$(nRow).css('color', 'red')
+						break;
+					case 'N/A':
+						$(nRow).css('color', 'red')
+						break;
+				}
+			},
 			"cache": false,
 			"white-space": "nowrap",
 			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
@@ -121,29 +131,27 @@
 	    			url: "http://localhost:8080/operations-service/containers/",
 	    			dataSrc: ""
 	    		},
-				"columns": [
-					{ "data": "id" },
-					{ "data": "agentId" },
-					{ "data": "memTotal" },
-					{ "data": "memUsed" },
-					{ "data": "memFree" },
-					{ "data": "osDescription" },
-					{ "data": "osName" },
-					{ "data": "osDataModel" },
-					{ "data": "primaryIpAddress" },
-					{ "data": "primaryMacAddress" },
-					{ "data": "hostName" },
-					{ "data": "cpuVendor" },
-					{ "data": "cpuModel" },
-					{ "data": "cpuCount" },
-					{ "data": "diskSpaceTotal" },
-					{ "data": "diskSpaceUsed" },
-					{ "data": "diskSpaceFree" }
-				]
+			"columns": [
+				{ "data": "id" },
+				{ "data": "agentId" },
+				{ "data": "memTotal" },
+				{ "data": "memUsed" },
+				{ "data": "memFree" },
+				{ "data": "osDescription" },
+				{ "data": "osName" },
+				{ "data": "osDataModel" },
+				{ "data": "primaryIpAddress" },
+				{ "data": "primaryMacAddress" },
+				{ "data": "hostName" },
+				{ "data": "cpuVendor" },
+				{ "data": "cpuModel" },
+				{ "data": "cpuCount" },
+				{ "data": "diskSpaceTotal" },
+				{ "data": "diskSpaceUsed" },
+				{ "data": "diskSpaceFree" }
+			]
 		} );
 		$.fn.dataTable.ext.errMode = 'throw';
-
-		$("#pagination_table tr td:contains('N/A')").parent().css('background-color','red');
 		
 		setInterval( function () {
   			table.fnReloadAjax();
