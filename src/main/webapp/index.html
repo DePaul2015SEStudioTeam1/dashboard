@@ -108,7 +108,7 @@
 <script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
 <script>	
 	$(document).ready(function() {
-		$('#containers').dataTable( {
+		var table = $('#containers').dataTable( {
 			"white-space": "nowrap",
 			"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
 	    		"ajax": {
