@@ -142,6 +142,8 @@
 				]
 		} );
 		$.fn.dataTable.ext.errMode = 'throw';
+
+		$("#pagination_table tr td:contains('N/A')").closest('tr').css('background-color', 'red');
 		
 		setInterval( function () {
   			table.fnReloadAjax();
